@@ -57,7 +57,11 @@ Every evicted line gets marked as invalid. invalid lines always result in misses
 
 ## Section 5 - NUMA (Non Uniform Memory Architectures) Support
 
-
+- mainly used for big machines with the problem multiple cores of multiple processors accessing the same memory. numa is not meant as a commodity system
+- hypercubes are pretty efficient in using nodes up to around 8 nodes (in modern times), so C = 3
+- beyond that, specielized hardware is required, so usually what is formed is that there are commodity machines connected with each other using high-speed networking to form a cluster, although these are nnnot NUMA machines and do not implement a shared address space in memory
+- .SO files in unix machines are Executable and Linkable Format, like DLLs (Dynamic Link Libraries) in windows and they are both DSOs (Dynamic Shared Objects) files
+- the OS should not try to migrate any processes or threads between processor nodes, since this means the cache content is lost 
 
 ## Main Takeaways
 
