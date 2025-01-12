@@ -17,6 +17,7 @@
 
 ### RAM as caches is SRAM
 ### RAM as main memory is DRAM
+### THE CPU CAN ONLY PERFORM DATA OPS IN L1D
 
 ### Policies (for my brain memory self refreshment)
 Hits:
