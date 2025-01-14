@@ -20,7 +20,7 @@
 ### THE CPU CAN ONLY PERFORM DATA OPS IN L1D
 
 ### Policies (for my brain memory self refreshment)
-Hits:
+Policies:
 - Write through: every write goes to cache and then main memory
 - Write back: writes to cache and mark as dirty, then, when line gets evicted (LRU), writes to main memory
   
@@ -62,7 +62,17 @@ Every evicted line gets marked as invalid. invalid lines always result in misses
 - hypercubes are pretty efficient in using nodes up to around 8 nodes (in modern times), so C = 3
 - beyond that, specielized hardware is required, so usually what is formed is that there are commodity machines connected with each other using high-speed networking to form a cluster, although these are nnnot NUMA machines and do not implement a shared address space in memory
 - .SO files in unix machines are Executable and Linkable Format, like DLLs (Dynamic Link Libraries) in windows and they are both DSOs (Dynamic Shared Objects) files
-- the OS should not try to migrate any processes or threads between processor nodes, since this means the cache content is lost 
+- the OS should not try to migrate any processes or threads between processor nodes, since this means the cache content is lost
+
+## Section 6 - What Programmers Can Do
+
+- If a condition is likely to occur, put it first
+- IO/Bound processes and CPU bound processes
+- schedulers work in a fifo base, the first processes get done first
+- multi-threading -> concurrency, atomicity and bandwidth
+- always try to make threads use the same cores of a processor in the same cache domain
+- Thread affinity -> assigning a thread to one or more cores, where the scheduler will then choose among those cores when deciding where to run the thread
+- this applies to java too btw
 
 ## Main Takeaways
 
