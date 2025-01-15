@@ -74,6 +74,19 @@ Every evicted line gets marked as invalid. invalid lines always result in misses
 - Thread affinity -> assigning a thread to one or more cores, where the scheduler will then choose among those cores when deciding where to run the thread
 - this applies to java too btw
 
+## Section 7 - Memory Performance Tools
+
+### The more instructions are performed (in bytes), the more cycles it takes to complete them
+- In a intel core 2 processor (2 caches)
+- While the l1d is large enough: 1.0 cycle/instruction is usually what we get
+- When that is no longer the case, the cycles/instruction jump over 3.0, so l2 is still holding
+- Finally, when l2 is also not holding, cycle/instructions jump to over 30, a very large and long amount
+- these also all involve misses
+
+### Page faults:
+- Minor ones: for anonymous pages (not backed by files) which haven't been used so fat, content is already in memory somewhere
+- Major ones: resolving requiires disk I/O -> retrieving file-backed or swapped out data
+
 ## Main Takeaways
 
 ### Static arrays are more efficient than dynamic arrays
